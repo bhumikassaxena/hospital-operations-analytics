@@ -133,3 +133,15 @@ where exists (
     where d.patient_id = p.patient_id
     and d.primary_diagnosis = 'hypertension'
 );
+
+-- Q20: Same result as Q18, rewritten as a derived-table join instead of a correlated subquery
+-- Computes each group's average BMI once (2 rows), instead of once per patient (100,000 times)
+select p1.patient_id, p1.sex, p1.bmi
+from patients p1
+join (
+    select sex, avg(bmi) as avg_bmi
+    from patients
+    group by sex
+) as sex_avg
+on p1.sex = sex_avg.sex
+where p1.bmi > sex_avg.avg_bmi;
