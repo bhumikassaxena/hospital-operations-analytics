@@ -34,13 +34,13 @@ Four interactive dashboards, each focused on a specific operational question:
 
 ## SQL Analysis
 
-The `/sql` folder contains a 19-query script progressing from beginner to advanced SQL, covering:
+The `/sql` folder contains a 20-query script progressing from beginner to advanced SQL, covering:
 
 - Filtering, sorting, and aggregation (`WHERE`, `ORDER BY`, `GROUP BY`, `HAVING`)
 - Multi-table joins (`INNER JOIN`, `LEFT JOIN`)
 - Derived columns with `CASE WHEN`
-- Subqueries, including anti-joins solved three ways (`NOT IN`, `LEFT JOIN` + `IS NULL`, and `NOT EXISTS`)
-- Window functions (`RANK()`, `PARTITION BY`) and CTEs (`WITH`)
+- Subqueries, including two anti-join patterns (`NOT IN`, `LEFT JOIN` + `IS NULL`) and an `EXISTS`-based join as an alternative to `INNER JOIN`
+- Window functions (`RANK()', 'PARTITION BY`) and CTEs (`WITH`)
 - Correlated subqueries, and a rewrite of one as an optimized join (a correlated subquery recalculating a per-group average across 100,000 rows was rewritten as a derived-table join — cutting a 30+ second query down to near-instant by computing each group average once instead of once per row)
 
 📄 [View the full SQL script](sql/hospital_operations_queries.sql)
