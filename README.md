@@ -51,12 +51,19 @@ I also built this analysis as a Power BI dashboard to demonstrate versatility ac
 
 ![Power BI Dashboard](powerbi/powerbi_dashboard.png)
 
+## Data Notes
+
+- The database contains **100,000 patients**, of whom **11,001 were admitted** (one admission each, 2018–2024). Cost, length of stay, and readmission metrics are based on these 11,001 admissions.
+- The diagnoses table is a visit history (274,592 rows), so a patient can have more than one condition. In the diagnosis charts, each admitted patient appears once **for every condition in their history**. Rates and averages by condition should be read as "among admitted patients with a history of this condition," and **totals by condition overlap, so they don't add up** to overall charges ($200.5M).
+- I found this while validating dashboard totals against the source table, and relabeled the Tableau charts to reflect it. The Power BI dashboard uses admission-level measures and is not affected.
+
 ## Key Insights
 
-- Hypertension, obesity, and hyperlipidemia are the top 3 diagnoses by total treatment cost
-- Type 1 diabetes patients have the highest 30-day readmission rate (~21%) despite not being the highest-cost diagnosis
-- Average length of stay is 5.2 days, with type 1 diabetes patients averaging the longest stays
-- Insurance type shows relatively little variation in average charges, suggesting cost drivers are more diagnosis-related than payer-related
+- Admitted patients with hypertension, obesity, and hyperlipidemia account for the most total charges, mainly because they are the largest patient groups. Average cost per admission is similar across conditions (~$17K–$19K).
+- Admitted patients with type 1 diabetes have the highest 30-day readmission rate (~21%) and the longest average stay (5.8 days), though this group is small (103 patients), so the rate should be read with caution.
+- Overall, the average length of stay is 5.2 days and the 30-day readmission rate is 14.9%.
+- Insurance type shows relatively little variation in average charges ($17.3K–$19.1K), suggesting cost drivers are more clinical than payer-related.
+- 
 ## Repository Structure
 
 ```
@@ -69,3 +76,4 @@ hospital-operations-analytics/
 └── powerbi/
     └── powerbi_dashboard.png
 ```
+
