@@ -63,7 +63,7 @@ I also built this analysis as a Power BI dashboard to demonstrate versatility ac
 - Admitted patients with type 1 diabetes have the highest 30-day readmission rate (~21%) and the longest average stay (5.8 days), though this group is small (103 patients), so the rate should be read with caution.
 - Overall, the average length of stay is 5.2 days and the 30-day readmission rate is 14.9%.
 - Insurance type shows relatively little variation in average charges ($17.3K–$19.1K), suggesting cost drivers are more clinical than payer-related.
-- 
+  
 ## Repository Structure
 
 ```
